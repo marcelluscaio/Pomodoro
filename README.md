@@ -3,7 +3,7 @@ Pomodoro
 
 
 Tarefas:
-- [] Create timeout
+- [x] Create timeout
 - []Create interface
 - [] Control time, and after 25 minutes let user know time is out
 - [] Another tab for 5 min pause
