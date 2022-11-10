@@ -4,7 +4,7 @@ Pomodoro
 
 Tarefas:
 - [x] Create timeout
-- [ ] Create Pomodor activator
+- [x] Create Pomodoro activator
 - [ ] Conect through JS Pomodor activator
 - [ ] Control time, and after 25 minutes let user know time is out
 - [ ] Another tab for 5 min pause
