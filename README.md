@@ -8,11 +8,16 @@ Tarefas:
 - [X] Conect through Pomodoro activator through JS;
 - [x] Create total time controler;
 - [x] Create countdown per second;
+- [ ] Calculate remaining time
+- [ ] Create timer element on screen
+- [ ] Make timer change according to countdown
 - [ ] Control time, and after 25 minutes let user know time is out
-- [ ] Another tab for 5 min pause
-- [ ] Show countdown
-- [ ] After 4, long pause
+- [ ] Button for interval
+- [ ] Change bg color according to mode
 - [ ] Button to pause and get back
+- [ ] Another tab for 5 min pause
+- [ ] Show count of cycles
+- [ ] After 4, long pause
 - [ ] Sound of start and end
 
 ### Extra:

@@ -1,10 +1,15 @@
 body{
    background-color: #C84949;
    color: #dddddd;
-   font-family: sans-serif;
+   font-family: cursive;
 }
 
-.caixa{
+body > h1{
+   text-align: center;
+   font-size: 3em;
+}
+
+.box{
    width: 80%;
    text-align: center;
    margin: 0 auto;
@@ -22,4 +27,19 @@ body{
    text-transform: uppercase;
    font-size: 1em;
    cursor: pointer;
+}
+
+.timer {
+    font-size: 5em;
+    margin: 0 0 1rem;
+    font-weight: 300;
+}
+
+.cycles {
+    margin: 1em;
+    text-align: center;
+}
+
+.cycles::before {
+    content: "Cycle #";
 }
