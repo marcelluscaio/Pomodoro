@@ -1,39 +1,55 @@
 const startButton = document.querySelector("#start");
 const timer = document.querySelector("#timer");
-const totalTime = 4000;
+const totalTime = 10000;
 const endNotice = document.querySelector('#end-notice');
 let timeLeft = totalTime/1000;
 
 startButton.addEventListener("click", timeCount)
 
-let teste;
 let counter;
+let timeOut;
 
 function timeCount(){
    if(startButton.innerText==='START'){
-      teste = setInterval(
-         () => {
-            console.log('aqui')
-         }, 1000);
       endNotice.innerText = "";
-      timer.innerText = formatTime(timeLeft);
       console.log("Começou Pomodoro!"); 
       startButton.innerText = 'pause';
+      timer.innerText = formatTime(timeLeft);
       counter = setInterval(() => {      
          timeLeft--;
          timer.innerText = formatTime(timeLeft); 
       }, "1000");
 
-
-      const timeOut = setTimeout(() => {      
+      timeOut = setTimeout(() => {      
          console.log("Acabou o Pomodoro!");
          clearInterval(counter);
-         timeLeft = totalTime/1000;
          endNotice.innerText = "Seu Pomodoro acabou. Descanse um pouco"
-         }, totalTime);
+         timeLeft = totalTime/1000; //Zera contador. Vai virar a mudanca de estado
+         }, totalTime); //da pra usar o time left?
    } else if(startButton.innerText==='PAUSE'){
-      clearInterval(teste);
-      clearInterval(counter)
+      endNotice.innerText = "Tempo pausado";
+      startButton.innerText = 'restart';
+
+      
+      clearInterval(counter);
+      clearTimeout(timeOut);
+
+   } else if(startButton.innerText==='RESTART'){
+      endNotice.innerText = "";
+      startButton.innerText = 'pause';
+
+      counter = setInterval(() => {      
+         timeLeft--;
+         timer.innerText = formatTime(timeLeft); 
+      }, "1000");
+
+      timeOut = setTimeout(() => {      
+         console.log("Acabou o Pomodoro!");
+         clearInterval(counter);
+         endNotice.innerText = "Seu Pomodoro acabou. Descanse um pouco"
+         timeLeft = totalTime/1000;
+         }, (timeLeft * 1000));
+   
    }
 
 };

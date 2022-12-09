@@ -12,9 +12,9 @@ Tarefas:
 - [x] Create timer element on screen
 - [X] Make timer change according to countdown
 - [X] Control time, and after 25 minutes let user know time is out
+- [X] Button to pause and get back
 - [ ] Button for interval
 - [ ] Change bg color according to mode
-- [ ] Button to pause and get back
 - [ ] Another tab for 5 min pause
 - [ ] Show count of cycles
 - [ ] After 4, long pause
