@@ -10,8 +10,8 @@ Tarefas:
 - [x] Create countdown per second;
 - [x] Calculate remaining time
 - [x] Create timer element on screen
-- [ ] Make timer change according to countdown
-- [ ] Control time, and after 25 minutes let user know time is out
+- [X] Make timer change according to countdown
+- [X] Control time, and after 25 minutes let user know time is out
 - [ ] Button for interval
 - [ ] Change bg color according to mode
 - [ ] Button to pause and get back
