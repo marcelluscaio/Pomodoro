@@ -1,14 +1,16 @@
 const startButton = document.querySelector("#start");
+const timer = document.querySelector("#timer");
 const totalTime = 4000;
 let timeLeft = totalTime/1000;
 
-startButton.addEventListener("click", timer);
+startButton.addEventListener("click", timeCount);
 
-function timer(){
+function timeCount(){
    console.log("Começou Pomodoro!"); 
+   timer.innerText = formatTime(timeLeft); 
    const counter = setInterval(() => {      
-      timeLeft--
-      console.log(timeLeft);   
+      timeLeft--;
+      timer.innerText = formatTime(timeLeft); 
    }, "1000");
    setTimeout(() => {      
       console.log("Acabou o Pomodoro!");
@@ -17,10 +19,8 @@ function timer(){
    }, totalTime);
 };
 
-function formatTime(){
-   
+function formatTime(time){
+   let minutes = Math.floor(time / 60);
+   let seconds = time % 60;
+   return `${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}`
 }
-
-/* let minutos = 0;
-let segundos = 3;
-let milisegundosPomodoro = 1000*segundos; */
