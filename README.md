@@ -1,8 +1,30 @@
 # Pomodoro
-Pomodoro
+
+Ferramenta para auxiliar na aplicação do método Pomodoro. Controle seus ciclos de foco e descanso e aumente sua produtividade. 
+
+## Objetivo
+
+O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante o evento Live CoDe.
 
 
-Tarefas:
+## Construído com:
+
+![html5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+ ![css3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
+
+## Funcionalidades
+
+:hammer_and_wrench: ...; <br>
+:iphone: ...; <br>
+:fountain_pen: ...
+
+## Acesse
+
+<a href="#">Inserir quando houver deploy</a>.
+
+
+## Próximos passos
+
 - [x] Create timeout;
 - [x] Create Pomodoro activator;
 - [X] Conect through Pomodoro activator through JS;
@@ -20,6 +42,11 @@ Tarefas:
 - [ ] After 4, long pause
 - [ ] Sound of start and end
 
-### Extra:
+## Extra:
 
 - [ ]
+
+## Screenshots
+<p align="middle">
+<img src="#" width="100%" height="100%">
+</p>
