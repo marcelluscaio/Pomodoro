@@ -36,11 +36,11 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 - [X] Control time, and after 25 minutes let user know time is out
 - [X] Button to pause and get back
 - [X] Button for interval
-- [ ] Change bg color according to mode
-- [ ] Another tab for 5 min pause
 - [ ] Show count of cycles
+- [ ] Another tab for 5 min pause
 - [ ] After 4, long pause
 - [ ] Sound of start and end
+- [ ] Change bg color according to mode
 
 ## Extra:
 

@@ -1,5 +1,7 @@
 const startButton = document.querySelector("#start");
 const timer = document.querySelector("#timer");
+const cycles = document.querySelector("#cycles");
+let cycleCount = 0;
 const totalTime = 10000;
 let timeLeft = totalTime/1000;
 let restTime = 5000;
@@ -13,9 +15,10 @@ let timeOut;
 function timeCount(){
    if(startButton.innerText==='START'){
       endNotice.innerText = "";
-      console.log("Começou Pomodoro!"); 
       startButton.innerText = 'pause';
       timer.innerText = formatTime(timeLeft);
+      cycleCount++;
+      cycles.innerText = cycleCount;
       clearInterval(counter);
       clearTimeout(timeOut);
       counter = setInterval(() => {      
