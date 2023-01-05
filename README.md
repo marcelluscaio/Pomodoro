@@ -38,7 +38,8 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 - [X] Button for interval
 - [X] Show count of cycles
 - [X] After 4, long pause
-- [ ] Change bg color according to mode
+- [X] Change bg color according to mode
+- [X] Change happens gradually
 
 - [ ] Sound of start and end
 - [ ] Another tab for 5 min pause

@@ -1,8 +1,9 @@
+const body = document.querySelector("body");
 const startButton = document.querySelector("#start");
 const timer = document.querySelector("#timer");
 const cycles = document.querySelector("#cycles");
 const endNotice = document.querySelector('#end-notice');
-let totalTime = 2000;
+let totalTime = 50000;
 let restTime = 5000;
 let longerRestTime = 8000;
 let timeLeft = totalTime/1000;
@@ -10,6 +11,8 @@ let timeLeft = totalTime/1000;
 let cycleCount = 0;
 let counter;
 let timeOut;
+let bodyHue = 0;
+let rate = 120/(totalTime/1000);
 
 startButton.addEventListener("click", timeCount)
 
@@ -23,8 +26,14 @@ function timeCount(){
       clearInterval(counter);
       clearTimeout(timeOut);
       counter = setInterval(() => {      
+         //let percentageOfInterval = 100 - (((timeLeft*1000) / totalTime) * 100);
+         //bodyHue = percentageOfInterval *1.2; 
+         //Forma anterior que fiz. So funcionava pq partia do zero. Usando rate fica melhor
+         
+         bodyHue += rate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;      
          timeLeft--;
-         timer.innerText = formatTime(timeLeft); 
+         timer.innerText = formatTime(timeLeft);
       }, "1000");
 
       setSetTimeout();
@@ -40,6 +49,8 @@ function timeCount(){
       startButton.innerText = 'pause';      
 
       counter = setInterval(() => {      
+         bodyHue += rate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;  
          timeLeft--;
          timer.innerText = formatTime(timeLeft); 
       }, "1000");
@@ -49,9 +60,15 @@ function timeCount(){
    } else if(startButton.innerText==='REST'){
       endNotice.innerText = "Começou seu descanso";
       startButton.innerText = 'start';
-      let restTimeLeft = cycleCount % 4 === 0 ? longerRestTime / 1000 : restTime / 1000;
+      let totalRestTime = cycleCount % 4 === 0 ? longerRestTime : restTime;
+      let restTimeLeft = totalRestTime / 1000;
       timer.innerText = formatTime(restTimeLeft);
-      counter = setInterval(() => {      
+      counter = setInterval(() => {
+         let restRate = 120/(totalRestTime/1000);
+         bodyHue -= restRate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;  
+         //bodyHue = percentageOfInterval *1.2;
+         //body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`; 
          restTimeLeft--;
          timer.innerText = formatTime(restTimeLeft); 
       }, "1000");
