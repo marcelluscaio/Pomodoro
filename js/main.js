@@ -1,16 +1,17 @@
 const startButton = document.querySelector("#start");
 const timer = document.querySelector("#timer");
 const cycles = document.querySelector("#cycles");
-let cycleCount = 0;
-const totalTime = 10000;
-let timeLeft = totalTime/1000;
-let restTime = 5000;
 const endNotice = document.querySelector('#end-notice');
+let totalTime = 2000;
+let restTime = 5000;
+let longerRestTime = 8000;
+let timeLeft = totalTime/1000;
 
-startButton.addEventListener("click", timeCount)
-
+let cycleCount = 0;
 let counter;
 let timeOut;
+
+startButton.addEventListener("click", timeCount)
 
 function timeCount(){
    if(startButton.innerText==='START'){
@@ -48,7 +49,7 @@ function timeCount(){
    } else if(startButton.innerText==='REST'){
       endNotice.innerText = "Começou seu descanso";
       startButton.innerText = 'start';
-      let restTimeLeft = restTime / 1000;
+      let restTimeLeft = cycleCount % 4 === 0 ? longerRestTime / 1000 : restTime / 1000;
       timer.innerText = formatTime(restTimeLeft);
       counter = setInterval(() => {      
          restTimeLeft--;
@@ -59,7 +60,7 @@ function timeCount(){
          console.log("Acabou o Descanso!");
          clearInterval(counter);
          endNotice.innerText = "Seu Descanso acabou. Comece mais um foco"
-      }, restTime);
+      }, restTimeLeft * 1000);
    }
 };
 
