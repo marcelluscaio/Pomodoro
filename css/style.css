@@ -1,6 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body{
    background-color: hsl(0, 54%, 54%);
-   color: #dddddd;
    font-family: cursive;
 }
 
