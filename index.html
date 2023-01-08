@@ -7,14 +7,15 @@
    <link rel="stylesheet" href="dist/output.css">
    <title>Pomodoro</title>
 </head>
-<body class="text-gray-300">
-   <h1 >Meu Pomodoro</h1>
-   <div class="box">
-      <p class="timer" id="timer">25:00</p>
-      <button class="start" id="start">Start</button>
+<body class="text-gray-300 font-mono h-screen">
+   <h1 class="text-center text-5xl pt-4 mb-8">Meu Pomodoro</h1>
+   <div class="w-[85%] h-3/5 sm:h-3/4 bg-gray-300/25 rounded-2xl mx-auto px-4 py-8 flex flex-col items-center">
+      <p class="text-7xl mb-8 grow flex justify-center items-center opacity-90" id="timer">25:00</p>
+      <button class="bg-[#C84949] rounded-full w-2/3 px-3 py-1 uppercase" id="start">Start</button>
       <p class="end-notice" id="end-notice"></p>
+      <p class="cycles" id="cycles">0</p>
    </div>
-   <p class="cycles" id="cycles">0</p>
+   
 
    <script src="js/main.js"></script>
 </body>

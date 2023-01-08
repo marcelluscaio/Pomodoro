@@ -4,20 +4,10 @@
 
 body{
    background-color: hsl(0, 54%, 54%);
-   font-family: cursive;
 }
 
-body > h1{
-   text-align: center;
-   font-size: 3em;
-}
-
-.box{
-   width: 80%;
-   text-align: center;
-   margin: 0 auto;
-   padding: 2em 1em;
-   background-color: #FFFFFF33;
+h1{
+   font-family: cursive; 
 }
 
 .start{
@@ -30,12 +20,6 @@ body > h1{
    text-transform: uppercase;
    font-size: 1em;
    cursor: pointer;
-}
-
-.timer {
-    font-size: 5em;
-    margin: 0 0 1rem;
-    font-weight: 300;
 }
 
 .cycles {
