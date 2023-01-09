@@ -18,7 +18,7 @@ startButton.addEventListener("click", timeCount)
 
 function timeCount(){
    if(startButton.innerText==='START'){
-      endNotice.innerText = "";
+      endNotice.innerText = "Concentre-se";
       startButton.innerText = 'pause';
       timer.innerText = formatTime(timeLeft);
       cycleCount++;
@@ -31,7 +31,8 @@ function timeCount(){
          //Forma anterior que fiz. So funcionava pq partia do zero. Usando rate fica melhor
          
          bodyHue += rate;
-         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;      
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         startButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;    
          timeLeft--;
          timer.innerText = formatTime(timeLeft);
       }, "1000");
@@ -45,12 +46,13 @@ function timeCount(){
       clearTimeout(timeOut);
 
    } else if(startButton.innerText==='RESTART'){
-      endNotice.innerText = "";
+      endNotice.innerText = "Concentre-se";
       startButton.innerText = 'pause';      
 
       counter = setInterval(() => {      
          bodyHue += rate;
-         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;  
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         startButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;   
          timeLeft--;
          timer.innerText = formatTime(timeLeft); 
       }, "1000");
@@ -66,9 +68,8 @@ function timeCount(){
       counter = setInterval(() => {
          let restRate = 120/(totalRestTime/1000);
          bodyHue -= restRate;
-         body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`;  
-         //bodyHue = percentageOfInterval *1.2;
-         //body.style.backgroundColor = `hsl(${bodyHue}, 54%, 54%)`; 
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         startButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`; 
          restTimeLeft--;
          timer.innerText = formatTime(restTimeLeft); 
       }, "1000");
