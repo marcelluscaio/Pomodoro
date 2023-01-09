@@ -41,7 +41,7 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 - [X] Change bg color according to mode
 - [X] Change happens gradually
 - [X] Style with Tailwind
-- [ ] Fazer esilizacao do cycle?
+- [X] Fazer esilizacao do cycle e mensagem
 - [ ] Permitir inserir tempo total com input
 
 - [ ] Sound of start and end
