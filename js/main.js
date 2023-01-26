@@ -40,32 +40,50 @@ const pomodoroStages = [
       stage: 'START',
       noticeToUser: 'Concentre-se',
       buttonText: 'pause',
-      periodMilliseconds: 10000,      
+      periodMilliseconds: 10000,
+      messageAfterCountdown: 'Seu Pomodoro acabou. Descanse um pouco',
+      buttonTextAfterCountdown: 'rest',    
       action: function(){
          cycleCount++;
          cycles.innerText = cycleCount;
          periodSeconds = this.periodMilliseconds / 1000;
          timer.innerText = formatTime(periodSeconds);
-         decreasesSeconds(periodSeconds);
-         setsCountdown(periodSeconds);
-      },
-   }
+         const directionBg = 'forward';
+         decreasesSeconds(periodSeconds, directionBg);
+         setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
+      }
+   },
+   {
+      stage: 'REST',
+      noticeToUser: 'Começou seu descanso',
+      buttonText: 'start',
+      periodMilliseconds: 5000,
+      messageAfterCountdown: 'Seu descanso acabou. Comece mais um foco',
+      buttonTextAfterCountdown: 'start',    
+      action: function(){
+         periodSeconds = this.periodMilliseconds / 1000;
+         timer.innerText = formatTime(periodSeconds);
+         const directionBg = 'backward';
+         decreasesSeconds(periodSeconds, directionBg);
+         setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
+      }
+   },
 ];
 
 // funcao decresce segundos
-function decreasesSeconds(seconds){
+function decreasesSeconds(seconds, directionBg){
    timeLeft = seconds;
    const rate = 120/seconds;
    counter = setInterval(() =>{
-      changesBg(rate);
+      changesBg(rate, directionBg);
       timeLeft--;
       timer.innerText = formatTime(timeLeft);
    } , 1000)   
 }
 
 //funcao changesBackground
-function changesBg(rate){   
-   bodyHue += rate;
+function changesBg(rate, direction){   
+   direction === 'forward' ? bodyHue += rate : bodyHue -= rate;
    body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
    controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
 }
@@ -146,12 +164,12 @@ function pomodoroEngine(buttonContent){
 };
 
 //mudar nome para define contagem regressiva
-function setsCountdown(seconds){
+function setsCountdown(seconds, message, buttonText){
    timeOut = setTimeout(() =>
       {
          clearInterval(counter);
-         noticeToUser.innerText = "Seu Pomodoro acabou. Descanse um pouco";
-         controlButton.innerText = 'rest';
+         noticeToUser.innerText = message;
+         controlButton.innerText = buttonText;
       }, seconds * 1000);
 }
 
