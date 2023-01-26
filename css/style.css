@@ -18,3 +18,17 @@ h1 + div{
 .cycles::before {
     content: "Cycle #";
 }
+
+.restore{
+   animation-name: backToRed;
+   animation-duration: 2s;
+   animation-timing-function: ease-in-out;
+   animation-direction: normal;
+   animation-fill-mode: forwards;
+}
+
+@keyframes backToRed{
+   to{
+      background-color: hsl(0, 50%, 25%)
+   }
+}

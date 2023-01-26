@@ -672,6 +672,20 @@ h1 + div{
   content: "Cycle #";
 }
 
+.restore{
+  animation-name: backToRed;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes backToRed{
+  to{
+    background-color: hsl(0, 50%, 25%)
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:h-3\/4 {
     height: 75%;

@@ -95,6 +95,29 @@ const pomodoroStages = [
          setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
       }
    },
+   {
+      stage: 'SKIP REST',
+      noticeToUser: 'Concentre-se',
+      buttonText: 'pause',
+      periodMilliseconds: () => 10000,
+      messageAfterCountdown: 'Seu Pomodoro acabou. Descanse um pouco',
+      buttonTextAfterCountdown: 'rest',    
+      action: function(){
+         cycleCount++;
+         cycles.innerText = cycleCount;
+         periodSeconds = this.periodMilliseconds() / 1000;
+         timer.innerText = formatTime(periodSeconds);         
+         [body, controlButton].forEach(e => e.classList.add('restore'));
+         controlButton.disable = true;
+         const directionBg = 'forward';
+         const intervalChange = 120;
+         setTimeout(() => {
+            controlButton.disable = false;
+            decreasesSeconds(periodSeconds, directionBg, intervalChange);
+            setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
+         }, 1000)         
+      }
+   }
 ];
 
 // funcao decresce segundos
