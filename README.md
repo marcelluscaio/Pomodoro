@@ -77,3 +77,85 @@ body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
 startButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;    
 timeLeft--;
 timer.innerText = formatTime(timeLeft);
+
+
+
+
+Isso
+
+
+
+   
+   
+   /* if(controlButton.innerText==='START'){
+      noticeToUser.innerText = "Concentre-se";
+      controlButton.innerText = 'pause';
+      timer.innerText = formatTime(timeLeft);
+      cycleCount++;
+      cycles.innerText = cycleCount;
+      clearInterval(counter);
+      clearTimeout(timeOut);
+      counter = setInterval(() => {      
+         
+         
+         bodyHue += rate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;    
+         timeLeft--;
+         timer.innerText = formatTime(timeLeft);
+      }, "1000");
+
+      setsCountdown();
+
+   } else if(controlButton.innerText==='PAUSE'){
+      noticeToUser.innerText = "Tempo pausado";
+      controlButton.innerText = 'restart';      
+      clearInterval(counter);
+      clearTimeout(timeOut);
+
+   } else if(controlButton.innerText==='RESTART'){
+      noticeToUser.innerText = "Concentre-se";
+      controlButton.innerText = 'pause';      
+
+      counter = setInterval(() => {      
+         bodyHue += rate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;   
+         timeLeft--;
+         timer.innerText = formatTime(timeLeft); 
+      }, "1000");
+
+      setsCountdown();
+   
+   } else if(controlButton.innerText==='REST'){
+      noticeToUser.innerText = "Começou seu descanso";
+      controlButton.innerText = 'start';
+      let totalRestTime = cycleCount % 4 === 0 ? longerRestTime : restTime;
+      let restTimeLeft = totalRestTime / 1000;
+      timer.innerText = formatTime(restTimeLeft);
+      counter = setInterval(() => {
+         let restRate = 120/(totalRestTime/1000);
+         bodyHue -= restRate;
+         body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+         controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`; 
+         restTimeLeft--;
+         timer.innerText = formatTime(restTimeLeft); 
+      }, "1000");
+
+      timeOut = setTimeout(() => {      
+         console.log("Acabou o Descanso!");
+         clearInterval(counter);
+         noticeToUser.innerText = "Seu descanso acabou. Comece mais um foco"
+      }, restTimeLeft * 1000);
+   } */
+/* 
+function setsCountdown(){
+   timeOut = setTimeout(() =>
+      {
+         clearInterval(counter);
+         noticeToUser.innerText = "Seu Pomodoro acabou. Descanse um pouco";
+         controlButton.innerText = 'rest';
+         timeLeft = totalTime / 1000;
+      }, timeLeft * 1000);
+} 
+*/

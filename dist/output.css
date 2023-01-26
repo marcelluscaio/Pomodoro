@@ -674,7 +674,7 @@ h1 + div{
 
 .restore{
   animation-name: backToRed;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-direction: normal;
   animation-fill-mode: forwards;
