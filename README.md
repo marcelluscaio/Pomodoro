@@ -18,6 +18,9 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 :iphone: ...; <br>
 :fountain_pen: ...
 
+Aprendizados
+Empty item keeps its space: whitespace-pre-wrap
+
 ## Acesse
 
 <a href="#">Inserir quando houver deploy</a>.
@@ -42,18 +45,30 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 - [X] Change happens gradually
 - [X] Style with Tailwind
 - [X] Fazer esilizacao do cycle e mensagem
-
+- [ ] Aply OOP to Pomodoro Engine
+- [ ] Gear icon to open modal to setting 
 - [ ] Permitir inserir tempo total com input
-- [ ] Sound of start and end (audio do pedro)
+- [ ] Sound of start and end (FAzer meus 4 audios)
 
-- [ ] Another tab for 5 min pause
-
-
-## Extra:
-
-- [ ]
 
 ## Screenshots
 <p align="middle">
 <img src="#" width="100%" height="100%">
 </p>
+
+
+Isso
+//let percentageOfInterval = 100 - (((timeLeft*1000) / totalTime) * 100);
+//bodyHue = percentageOfInterval *1.2; 
+//Forma anterior que fiz. So funcionava pq partia do zero. Usando rate fica melhor
+
+
+virou
+let bodyHue = 0;
+let rate = 120/(totalTime/1000);
+
+bodyHue += rate;
+body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+startButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;    
+timeLeft--;
+timer.innerText = formatTime(timeLeft);
