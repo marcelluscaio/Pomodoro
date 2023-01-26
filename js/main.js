@@ -1,8 +1,12 @@
-const body = document.querySelector("body");
-const startButton = document.querySelector("#start");
-const timer = document.querySelector("#timer");
-const cycles = document.querySelector("#cycles");
-const endNotice = document.querySelector('#end-notice');
+function select(selector){
+   return document.querySelector(selector)
+};
+
+const body = select("body");
+const startButton = select("#start");
+const timer = select("#timer");
+const cycles = select("#cycles");
+const endNotice = select('#end-notice');
 let totalTime = 10000;
 let restTime = 5000;
 let longerRestTime = 8000;
@@ -14,8 +18,15 @@ let timeOut;
 let bodyHue = 0;
 let rate = 120/(totalTime/1000);
 
+/* 
+   const audio = new Audio('url');
+   Fazer audio para inicio do foco, fim do foco, inicio do descanso, fim do descanso
+ */
+
 startButton.addEventListener("click", timeCount)
 
+
+//refazer como objeto
 function timeCount(){
    if(startButton.innerText==='START'){
       endNotice.innerText = "Concentre-se";
@@ -77,7 +88,7 @@ function timeCount(){
       timeOut = setTimeout(() => {      
          console.log("Acabou o Descanso!");
          clearInterval(counter);
-         endNotice.innerText = "Seu Descanso acabou. Comece mais um foco"
+         endNotice.innerText = "Seu descanso acabou. Comece mais um foco"
       }, restTimeLeft * 1000);
    }
 };

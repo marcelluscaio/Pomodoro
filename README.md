@@ -42,10 +42,12 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 - [X] Change happens gradually
 - [X] Style with Tailwind
 - [X] Fazer esilizacao do cycle e mensagem
-- [ ] Permitir inserir tempo total com input
 
-- [ ] Sound of start and end
+- [ ] Permitir inserir tempo total com input
+- [ ] Sound of start and end (audio do pedro)
+
 - [ ] Another tab for 5 min pause
+
 
 ## Extra:
 
