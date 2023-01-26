@@ -40,23 +40,24 @@ const pomodoroStages = [
       stage: 'START',
       noticeToUser: 'Concentre-se',
       buttonText: 'pause',
-      periodMilliseconds: 10000,
+      periodMilliseconds: () => 10000,
       messageAfterCountdown: 'Seu Pomodoro acabou. Descanse um pouco',
       buttonTextAfterCountdown: 'rest',    
       action: function(){
          cycleCount++;
          cycles.innerText = cycleCount;
-         periodSeconds = this.periodMilliseconds / 1000;
+         periodSeconds = this.periodMilliseconds() / 1000;
          timer.innerText = formatTime(periodSeconds);
          const directionBg = 'forward';
-         decreasesSeconds(periodSeconds, directionBg);
+         const intervalChange = 120;
+         decreasesSeconds(periodSeconds, directionBg, intervalChange);
          setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
       }
    },
    {
       stage: 'REST',
       noticeToUser: 'Começou seu descanso',
-      buttonText: 'start',
+      buttonText: 'skip rest',
       periodMilliseconds: () => cycleCount % 4 === 0 ? 15000 : 5000,
       messageAfterCountdown: 'Seu descanso acabou. Comece mais um foco',
       buttonTextAfterCountdown: 'start',    
@@ -64,16 +65,42 @@ const pomodoroStages = [
          periodSeconds = this.periodMilliseconds() / 1000;
          timer.innerText = formatTime(periodSeconds);
          const directionBg = 'backward';
-         decreasesSeconds(periodSeconds, directionBg);
+         const intervalChange = 120;
+         decreasesSeconds(periodSeconds, directionBg, intervalChange);
+         setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
+      }
+   },
+   {
+      stage: 'PAUSE',
+      noticeToUser: 'Tempo pausado',
+      buttonText: 'restart',
+      periodMilliseconds: '',
+      messageAfterCountdown: '',
+      buttonTextAfterCountdown: '',    
+      action: function(){}
+   },
+   {
+      stage: 'RESTART',
+      noticeToUser: 'Concentre-se',
+      buttonText: 'pause',
+      periodMilliseconds: () => timeLeft * 1000,
+      messageAfterCountdown: 'Seu Pomodoro acabou. Descanse um pouco',
+      buttonTextAfterCountdown: 'rest',    
+      action: function(){
+         periodSeconds = this.periodMilliseconds() / 1000;
+         timer.innerText = formatTime(periodSeconds);
+         const directionBg = 'forward';
+         const intervalChange = 120 - bodyHue;
+         decreasesSeconds(periodSeconds, directionBg, intervalChange);
          setsCountdown(periodSeconds, this.messageAfterCountdown, this.buttonTextAfterCountdown);
       }
    },
 ];
 
 // funcao decresce segundos
-function decreasesSeconds(seconds, directionBg){
+function decreasesSeconds(seconds, directionBg, intervalChange){
    timeLeft = seconds;
-   const rate = 120/seconds;
+   const rate = intervalChange/seconds;
    counter = setInterval(() =>{
       changesBg(rate, directionBg);
       timeLeft--;
