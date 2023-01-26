@@ -57,11 +57,11 @@ const pomodoroStages = [
       stage: 'REST',
       noticeToUser: 'Começou seu descanso',
       buttonText: 'start',
-      periodMilliseconds: 5000,
+      periodMilliseconds: () => cycleCount % 4 === 0 ? 15000 : 5000,
       messageAfterCountdown: 'Seu descanso acabou. Comece mais um foco',
       buttonTextAfterCountdown: 'start',    
       action: function(){
-         periodSeconds = this.periodMilliseconds / 1000;
+         periodSeconds = this.periodMilliseconds() / 1000;
          timer.innerText = formatTime(periodSeconds);
          const directionBg = 'backward';
          decreasesSeconds(periodSeconds, directionBg);
