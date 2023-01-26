@@ -8,16 +8,17 @@ const timer = select("#timer");
 const cycles = select("#cycles");
 const noticeToUser = select('#notice-user');
 
-let totalTime = 10000;
+/* let totalTime = 10000; */
 let restTime = 5000;
 let longerRestTime = 8000;
-let timeLeft = totalTime/1000;
+let timeLeft;
+/* let timeLeft = totalTime/1000; */
 
 let cycleCount = 0;
 let counter;
 let timeOut;
 let bodyHue = 0;
-let rate = 120/(totalTime/1000);
+/* let rate = 120/(totalTime/1000); */
 
 /* 
    const audio1 = new Audio('url');
@@ -32,32 +33,53 @@ let rate = 120/(totalTime/1000);
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
-//estado
-//mudanoticeToUser: mensagem
-//muda controlButton: mensagem
-//muda conteudo do timer
-//aumenta o ciclo ou nao
-// funcao define contagem regressiva
-// funcao decresce segundos
+
 
 const pomodoroStages = [
    {
       stage: 'START',
       noticeToUser: 'Concentre-se',
       buttonText: 'pause',
-      timer: '',
-      action: () => 'handle cycle, clear intervale ',
-
+      periodMilliseconds: 10000,      
+      action: function(){
+         cycleCount++;
+         cycles.innerText = cycleCount;
+         periodSeconds = this.periodMilliseconds / 1000;
+         timer.innerText = formatTime(periodSeconds);
+         decreasesSeconds(periodSeconds);
+         setsCountdown(periodSeconds);
+      },
    }
 ];
 
+// funcao decresce segundos
+function decreasesSeconds(seconds){
+   timeLeft = seconds;
+   const rate = 120/seconds;
+   counter = setInterval(() =>{
+      changesBg(rate);
+      timeLeft--;
+      timer.innerText = formatTime(timeLeft);
+   } , 1000)   
+}
 
+//funcao changesBackground
+function changesBg(rate){   
+   bodyHue += rate;
+   body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+   controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
+}
 
 //refazer como objeto
 function pomodoroEngine(buttonContent){
    const currentStage = pomodoroStages.filter(stage => stage.stage === buttonContent)[0];
    noticeToUser.innerText = currentStage.noticeToUser;
    controlButton.innerText = currentStage.buttonText;
+   clearInterval(counter);
+   clearTimeout(timeOut);
+   currentStage.action();
+
+
    
    
    /* if(controlButton.innerText==='START'){
@@ -124,6 +146,16 @@ function pomodoroEngine(buttonContent){
 };
 
 //mudar nome para define contagem regressiva
+function setsCountdown(seconds){
+   timeOut = setTimeout(() =>
+      {
+         clearInterval(counter);
+         noticeToUser.innerText = "Seu Pomodoro acabou. Descanse um pouco";
+         controlButton.innerText = 'rest';
+      }, seconds * 1000);
+}
+
+/* 
 function setsCountdown(){
    timeOut = setTimeout(() =>
       {
@@ -132,7 +164,8 @@ function setsCountdown(){
          controlButton.innerText = 'rest';
          timeLeft = totalTime / 1000;
       }, timeLeft * 1000);
-}
+} 
+*/
 
 function formatTime(time){
    let minutes = Math.floor(time / 60);

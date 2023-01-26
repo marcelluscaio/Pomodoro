@@ -21,6 +21,11 @@ O objetivo deste projeto foi desenvolver um sistema do Pomodoro e equipe durante
 Aprendizados
 Empty item keeps its space: whitespace-pre-wrap
 
+Diferenca entre funcao normal e arrow : this.
+Action do pomodoroStages não funcionava
+https://gomakethings.com/arrow-functions-in-vanilla-js/
+https://www.section.io/engineering-education/how-to-use-javascript-arrow-functions-and-this-keyword/#:~:text=Remember%20what%20we%20said%20about,scope%20whenever%20you%20call%20this%20.
+
 ## Acesse
 
 <a href="#">Inserir quando houver deploy</a>.
