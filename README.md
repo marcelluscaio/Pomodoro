@@ -50,7 +50,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Change happens gradually
 - [X] Style with Tailwind
 - [X] Fazer esilizacao do cycle e mensagem
-- [ ] Aply OOP to Pomodoro Engine
+- [X] Create Pomodoro Engine using  OOP
 - [ ] Gear icon to open modal to setting 
 - [ ] Permitir inserir tempo total com input
 - [ ] Sound of start and end (FAzer meus 4 audios)

@@ -12,28 +12,12 @@ let pomodoroMs = 6000;
 let shortRestMs = 5000;
 let longRestMs = 15000;
 let timeLeft;
-
-
 let counter;
 let timeOut;
 let cycleCount = 0;
 let bodyHue = 0;
-/* let rate = 120/(totalTime/1000); */
-
-/* 
-   const audio1 = new Audio('url');
-   const audio2 = new Audio('url');
-   const audio3 = new Audio('url');
-   const audio4 = new Audio('url');
-
-   audio1.play() etc
-
-   Fazer audio para inicio do foco, fim do foco, inicio do descanso, fim do descanso
- */
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
-
-
 
 const pomodoroStages = [
    {
@@ -44,10 +28,9 @@ const pomodoroStages = [
          periodMilliseconds = pomodoroMs;
          messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
          buttonTextAfterCountdown = 'rest';    
-         cycleCount++;
-         cycles.innerText = cycleCount;
+         handleCycle();
          periodSeconds = periodMilliseconds / 1000;
-         timer.innerText = formatTime(periodSeconds);
+         renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120;
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
@@ -63,7 +46,7 @@ const pomodoroStages = [
          messageAfterCountdown = 'Seu descanso acabou. Comece mais um foco';
          buttonTextAfterCountdown = 'start';    
          periodSeconds = periodMilliseconds / 1000;
-         timer.innerText = formatTime(periodSeconds);
+         renderTime(periodSeconds);
          const directionBg = 'backward';
          const intervalChange = 120;
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
@@ -85,7 +68,7 @@ const pomodoroStages = [
          messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
          buttonTextAfterCountdown = 'rest';    
          periodSeconds = periodMilliseconds / 1000;
-         timer.innerText = formatTime(periodSeconds);
+         renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120 - bodyHue;
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
@@ -100,10 +83,9 @@ const pomodoroStages = [
          periodMilliseconds = pomodoroMs;
          messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
          buttonTextAfterCountdown = 'rest';    
-         cycleCount++;
-         cycles.innerText = cycleCount;
+         handleCycle();
          periodSeconds = periodMilliseconds / 1000;
-         timer.innerText = formatTime(periodSeconds);         
+         renderTime(periodSeconds);         
          [body, controlButton].forEach(e => e.classList.add('restore'));
          controlButton.disabled = true;
          bodyHue = 0;
@@ -129,13 +111,17 @@ function formatTime(time){
    return `${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}`
 }
 
+function renderTime(time){
+   timer.innerText = formatTime(time);
+}
+
 function decreasesSeconds(seconds, directionBg, intervalChange){
    timeLeft = seconds;
    const rate = intervalChange/seconds;
    counter = setInterval(() =>{
       changesBg(rate, directionBg);
       timeLeft--;
-      timer.innerText = formatTime(timeLeft);
+      renderTime(timeLeft);
    } , 1000)   
 }
 
@@ -154,6 +140,11 @@ function setsCountdown(seconds, message, buttonText){
       }, seconds * 1000);
 }
 
+function handleCycle(){
+   cycleCount++;
+   cycles.innerText = cycleCount;
+}
+
 function pomodoroEngine(buttonContent){
    const currentStage = pomodoroStages.filter(stage => stage.stage === buttonContent)[0];
    noticeToUser.innerText = currentStage.noticeToUser;
@@ -162,3 +153,14 @@ function pomodoroEngine(buttonContent){
    clearTimeout(timeOut);
    currentStage.action();
 };
+
+/* 
+   const audio1 = new Audio('url');
+   const audio2 = new Audio('url');
+   const audio3 = new Audio('url');
+   const audio4 = new Audio('url');
+
+   audio1.play() etc
+
+   Fazer audio para inicio do foco, fim do foco, inicio do descanso, fim do descanso
+ */
