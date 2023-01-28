@@ -155,6 +155,7 @@ function pomodoroEngine(buttonContent){
 };
 
 /* 
+   Criar audio
    const audio1 = new Audio('url');
    const audio2 = new Audio('url');
    const audio3 = new Audio('url');

@@ -51,9 +51,15 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Style with Tailwind
 - [X] Fazer esilizacao do cycle e mensagem
 - [X] Create Pomodoro Engine using  OOP
-- [ ] Gear icon to open modal to setting 
+- [X] Gear icon to open modal to setting 
+- [ ] Animate gear
 - [ ] Permitir inserir tempo total com input
 - [ ] Sound of start and end (FAzer meus 4 audios)
+- [ ] Apply fluid typography
+Jean:
+- [ ] Status em cima do numero: Foco, Descanso
+- [ ] Colocar na aba do chrome os tempo atual
+- [ ] gitignore node modules
 
 
 ## Screenshots
