@@ -22,9 +22,18 @@ let cycleCount = 0;
 let bodyHue = 0;
 
 gear.addEventListener('click', e => {
-   e.target.classList.toggle('rotate');
-   e.target.classList.toggle('unrotate');
+   toggleRotation(e.target)
 });
+
+const toggleRotation = (target) => {
+   if(target.classList.contains('rotate')){      
+      target.classList.remove('rotate');
+      target.classList.add('unrotate');
+   } else{
+      target.classList.remove('unrotate');
+      target.classList.add('rotate');
+   }
+};
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 

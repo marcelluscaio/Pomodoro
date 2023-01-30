@@ -513,6 +513,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -531,6 +535,18 @@ video {
 
 .right-3 {
   right: 0.75rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .mx-auto {
@@ -568,6 +584,11 @@ video {
 
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .max-w-xl {
