@@ -12,20 +12,20 @@
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 absolute top-3.5 right-3.5 cursor-pointer z-[2]" id="gear">
       <path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" clip-rule="evenodd" />
    </svg>
-   <form id="sidebar" class="fixed top-0 bottom-0 right-0 min-w-fit p-6 bg-white-600 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-2 border-gray-300 rounded-tl-lg rounded-bl-lg z-[1] translate-x-full duration-1000 ease-in-out">
-      <div>
-         <label for="focus">Tempo de foco:</label>
-         <input id="focus" type="text" inputmode="numeric" pattern="[0-9]*">
+   <form id="sidebar" class="fixed top-0 bottom-0 right-0 min-w-fit w-2/5 pt-16 gap-y-14 flex flex-col bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-2 border-gray-300 rounded-tl-lg rounded-bl-lg z-[1] translate-x-full duration-1000 ease-in-out">
+      <div class="text-center">
+         <label for="focus" class="font-bold text-lg block mb-2">Tempo de foco</label>
+         <input id="focus" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="40">
          <span>minutos</span>
       </div>
-      <div>
-         <label for="short-break">Tempo de descanso curto:</label>
-         <input id="short-break" type="text" inputmode="numeric" pattern="[0-9]*">
+      <div class="text-center">
+         <label for="short-break" class="font-bold text-lg block mb-2">Tempo de descanso curto</label>
+         <input id="short-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="5">
          <span>minutos</span>
       </div>
-      <div>
-         <label for="long-break">Tempo de descanso longo:</label>
-         <input id="long-break" type="text" inputmode="numeric" pattern="[0-9]*">
+      <div class="text-center">
+         <label for="long-break" class="font-bold text-lg block mb-2">Tempo de descanso longo</label>
+         <input id="long-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="15">
          <span>minutos</span>
       </div>
    </form>
