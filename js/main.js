@@ -8,6 +8,7 @@ const timer = select("#timer");
 const cycles = select("#cycles");
 const noticeToUser = select('#notice-user');
 const gear = select("#gear");
+const sidebar = select("#sidebar");
 const inputFocus = select("#focus");
 const inputShortBreak = select("#short-break");
 const inputLongBreak = select("#long-break");
@@ -22,10 +23,11 @@ let cycleCount = 0;
 let bodyHue = 0;
 
 gear.addEventListener('click', e => {
-   toggleRotation(e.target)
+   toggleRotation(e.target);
+   toggleTranslate();
 });
 
-const toggleRotation = (target) => {
+const toggleRotation = target => {
    if(target.classList.contains('rotate')){      
       target.classList.remove('rotate');
       target.classList.add('unrotate');
@@ -34,6 +36,10 @@ const toggleRotation = (target) => {
       target.classList.add('rotate');
    }
 };
+
+const toggleTranslate = () => {
+   sidebar.classList.toggle('translate-x-full')
+}
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
