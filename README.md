@@ -52,7 +52,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Fazer esilizacao do cycle e mensagem
 - [X] Create Pomodoro Engine using  OOP
 - [X] Gear icon to open modal to setting 
-- [ ] Animate gear
+- [X] Animate gear
 - [ ] Permitir inserir tempo total com input
 - [ ] Sound of start and end (FAzer meus 4 audios)
 - [ ] Apply fluid typography

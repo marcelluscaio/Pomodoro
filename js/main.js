@@ -7,6 +7,7 @@ const controlButton = select("#control-button");
 const timer = select("#timer");
 const cycles = select("#cycles");
 const noticeToUser = select('#notice-user');
+const gear = select("#gear");
 
 let pomodoroMs = 6000;
 let shortRestMs = 5000;
@@ -16,6 +17,11 @@ let counter;
 let timeOut;
 let cycleCount = 0;
 let bodyHue = 0;
+
+gear.addEventListener('click', e => {
+   e.target.classList.toggle('rotate');
+   e.target.classList.toggle('unrotate');
+});
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
