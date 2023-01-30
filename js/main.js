@@ -12,15 +12,18 @@ const sidebar = select("#sidebar");
 const inputFocus = select("#focus");
 const inputShortBreak = select("#short-break");
 const inputLongBreak = select("#long-break");
+const saveButton = select("#save-button");
 
-let pomodoroMs = 6000;
-let shortRestMs = 5000;
-let longRestMs = 15000;
 let timeLeft;
 let counter;
 let timeOut;
 let cycleCount = 0;
 let bodyHue = 0;
+
+const minutesToMilliseconds = (minutes) => minutes * 60000;
+let pomodoroMs = minutesToMilliseconds(inputFocus.value);
+let shortRestMs = minutesToMilliseconds(inputShortBreak.value);
+let longRestMs = minutesToMilliseconds(inputLongBreak.value);
 
 gear.addEventListener('click', e => {
    toggleRotation(e.target);
@@ -47,9 +50,18 @@ controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText
     input.addEventListener("keyup", (e) =>{      
       e.target.value = allowOnlyNumbers(e.target.value);
    })
-)
+);
+
+saveButton.addEventListener('click', e => {
+   e.preventDefault();
+   pomodoroMs = minutesToMilliseconds(inputFocus.value);
+   shortRestMs = minutesToMilliseconds(inputShortBreak.value);
+   longRestMs = minutesToMilliseconds(inputLongBreak.value);
+})
 
 const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
+
+
 
 const pomodoroStages = [
    {

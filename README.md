@@ -54,8 +54,11 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Gear icon to open modal to setting 
 - [X] Animate gear
 - [X] Style form as sidebar
-- [ ] Style input in form
-- [ ] Permitir inserir tempo total com input
+- [X] Style input in form
+- [X] Set time with input
+- [ ] When hit save sidebar goes away
+- [ ] When hit save pomodoro restarts
+- [ ] When engine is hit, pomodoro pauses
 - [ ] Sound of start and end (FAzer meus 4 audios)
 - [ ] Apply fluid typography
 Jean:

@@ -15,24 +15,25 @@
    <form id="sidebar" class="fixed top-0 bottom-0 right-0 min-w-fit w-2/5 pt-16 gap-y-14 flex flex-col bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 border-2 border-gray-300 rounded-tl-lg rounded-bl-lg z-[1] translate-x-full duration-1000 ease-in-out">
       <div class="text-center">
          <label for="focus" class="font-bold text-lg block mb-2">Tempo de foco</label>
-         <input id="focus" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="40">
-         <span>minutos</span>
+         <input id="focus" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center py-0.5" type="text" inputmode="numeric" pattern="[0-9]*" value="40">
+         <span class="text-lg">minutos</span>
       </div>
       <div class="text-center">
          <label for="short-break" class="font-bold text-lg block mb-2">Tempo de descanso curto</label>
-         <input id="short-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="5">
-         <span>minutos</span>
+         <input id="short-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center py-0.5" type="text" inputmode="numeric" pattern="[0-9]*" value="5">
+         <span class="text-lg">minutos</span>
       </div>
       <div class="text-center">
          <label for="long-break" class="font-bold text-lg block mb-2">Tempo de descanso longo</label>
-         <input id="long-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center" type="text" inputmode="numeric" pattern="[0-9]*" value="15">
-         <span>minutos</span>
+         <input id="long-break" class="text-zinc-700 rounded-full w-1/2 max-w-xs font-semibold text-center py-0.5" type="text" inputmode="numeric" pattern="[0-9]*" value="15">
+         <span class="text-lg">minutos</span>
       </div>
+      <button id="save-button" class="bg-white text-zinc-700 rounded-full w-1/2 max-w-md py-2 font-semibold text-center text-lg mx-auto">Salvar</button>
    </form>
 
    <div class="w-[85%] h-3/5 sm:h-3/4 bg-gray-300/25 rounded-2xl mx-auto px-4 py-8 flex flex-col items-center gap-4">
       <p class="text-7xl grow flex justify-center items-center opacity-90" id="timer">25:00</p>
-      <button class="bg-[#602020] w-2/3 max-w-xl py-2 text-2xl lg:text-4xl lg:py-4 rounded-full uppercase" id="control-button">Start</button>
+      <button class="bg-[#602020] w-2/3 max-w-xl py-1 text-2xl lg:text-4xl lg:py-4 rounded-full uppercase" id="control-button">Start</button>
       <p class="whitespace-pre-wrap text-sm md:text-lg font-semibold" id="notice-user"> </p>
       <p class="cycles text-md md:text-md font-light" id="cycles">0</p>
    </div>
