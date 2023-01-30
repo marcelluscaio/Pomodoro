@@ -56,11 +56,11 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Style form as sidebar
 - [X] Style input in form
 - [X] Set time with input
-- [ ] When hit save sidebar goes away
-- [ ] When hit save pomodoro restarts
-- [ ] When engine is hit, pomodoro pauses
+- [X] When hit save sidebar goes away
+- [X] When hit save pomodoro restarts
+- [X] When engine is hit, pomodoro pauses
+- [ ] Allow user to restart that Cycle (in the middle of focus, you want to change and start over)
 - [ ] Sound of start and end (FAzer meus 4 audios)
-- [ ] Apply fluid typography
 Jean:
 - [ ] Status em cima do numero: Foco, Descanso
 - [ ] Colocar na aba do chrome os tempo atual

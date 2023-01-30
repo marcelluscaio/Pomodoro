@@ -26,9 +26,14 @@ let shortRestMs = minutesToMilliseconds(inputShortBreak.value);
 let longRestMs = minutesToMilliseconds(inputLongBreak.value);
 
 gear.addEventListener('click', e => {
-   toggleRotation(e.target);
-   toggleTranslate();
+   handleSidebar(e.target)
 });
+
+const handleSidebar = (icon) => {
+   toggleRotation(icon);
+   toggleTranslate();
+   handlePomodoroButton();
+}
 
 const toggleRotation = target => {
    if(target.classList.contains('rotate')){      
@@ -44,7 +49,18 @@ const toggleTranslate = () => {
    sidebar.classList.toggle('translate-x-full')
 }
 
-controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
+const handlePomodoroButton = () => {
+   switch(controlButton.innerText){
+      case 'START':
+         break;
+      case 'PAUSE':
+         pomodoroEngine('PAUSE')
+         break;
+      case 'RESTART':
+         pomodoroEngine('RESTART')
+         break;
+   }
+}
 
 [inputFocus, inputShortBreak, inputLongBreak].forEach(input =>
     input.addEventListener("keyup", (e) =>{      
@@ -52,16 +68,17 @@ controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText
    })
 );
 
+const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
+
 saveButton.addEventListener('click', e => {
    e.preventDefault();
    pomodoroMs = minutesToMilliseconds(inputFocus.value);
    shortRestMs = minutesToMilliseconds(inputShortBreak.value);
-   longRestMs = minutesToMilliseconds(inputLongBreak.value);
+   longRestMs = minutesToMilliseconds(inputLongBreak.value);   
+   handleSidebar(gear);
 })
 
-const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
-
-
+controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
 const pomodoroStages = [
    {
