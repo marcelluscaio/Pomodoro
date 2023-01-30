@@ -54,6 +54,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Gear icon to open modal to setting 
 - [X] Animate gear
 - [ ] Permitir inserir tempo total com input
+- [ ] 
 - [ ] Sound of start and end (FAzer meus 4 audios)
 - [ ] Apply fluid typography
 Jean:
@@ -165,3 +166,21 @@ function setsCountdown(){
       }, timeLeft * 1000);
 } 
 */
+
+
+
+
+
+Isso 
+//outra forma de checar se é letra
+//const isLetter = (character) => character.toLowerCase() != character.toUpperCase();
+
+Vira
+[inputFocus, inputShortBreak, inputLongBreak].forEach(input =>
+    input.addEventListener("keyup", (e) =>{
+      
+      e.target.value = allowOnlyNumbers(e.target.value);
+   })
+)
+
+const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');

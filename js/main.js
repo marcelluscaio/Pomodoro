@@ -8,7 +8,9 @@ const timer = select("#timer");
 const cycles = select("#cycles");
 const noticeToUser = select('#notice-user');
 const gear = select("#gear");
-const inputFocus = select("#focus")
+const inputFocus = select("#focus");
+const inputShortBreak = select("#short-break");
+const inputLongBreak = select("#long-break");
 
 let pomodoroMs = 6000;
 let shortRestMs = 5000;
@@ -26,10 +28,13 @@ gear.addEventListener('click', e => {
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
-inputFocus.addEventListener("keyup", (e) =>{
-   //const isLetter = (character) => character.toLowerCase() != character.toUpperCase();
-   e.target.value = e.target.value.replace(/[^0-9]+/, '');
-})
+[inputFocus, inputShortBreak, inputLongBreak].forEach(input =>
+    input.addEventListener("keyup", (e) =>{      
+      e.target.value = allowOnlyNumbers(e.target.value);
+   })
+)
+
+const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
 
 const pomodoroStages = [
    {
