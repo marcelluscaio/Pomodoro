@@ -64,8 +64,12 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [ ] Sound of start and end (Fazer meus 4 audios)
 Jean:
 - [ ] Status em cima do numero: Foco, Descanso
-- [ ] Colocar na aba do chrome os tempo atual
+- [X] Colocar na aba do chrome os tempo atual
 - [ ] gitignore node modules
+Fluid type
+local storage
+Implementar organização JS (Diferentes arquivos, Organizaçao interna)
+Implementar organização CSS
 
 
 ## Screenshots
