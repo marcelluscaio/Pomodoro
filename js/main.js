@@ -19,6 +19,7 @@ let counter;
 let timeOut;
 let cycleCount = 0;
 let bodyHue = 0;
+let sidebarIsOpen = false;
 
 const minutesToMilliseconds = (minutes) => minutes * 60000;
 let pomodoroMs = minutesToMilliseconds(inputFocus.value);
@@ -31,13 +32,13 @@ gear.addEventListener('click', e => {
 
 const handleSidebar = (icon) => {
    toggleRotation(icon);
-   toggleTranslate();
+   toggleTranslate();   
    disableButton();
    handlePomodoroButton();
 }
 
 const toggleRotation = target => {
-   if(target.classList.contains('rotate')){      
+   if(target.classList.contains('rotate')){
       target.classList.remove('rotate');
       target.classList.add('unrotate');
    } else{
@@ -47,7 +48,8 @@ const toggleRotation = target => {
 };
 
 const toggleTranslate = () => {
-   sidebar.classList.toggle('translate-x-full')
+   sidebar.classList.toggle('translate-x-full');
+   sidebarIsOpen ? sidebarIsOpen = false : sidebarIsOpen = true;
 }
 
 const disableButton = () => {
@@ -63,7 +65,8 @@ const handlePomodoroButton = () => {
          pomodoroEngine('PAUSE')
          break;
       case 'RESTART':
-         pomodoroEngine('RESTART')
+         !sidebarIsOpen && pomodoroEngine('RESTART')
+         //Prevents pomodoro from restarting when user had paused it before opening configs, and having the time reunning while user was in configs
          break;
    }
 }
@@ -81,8 +84,10 @@ saveButton.addEventListener('click', e => {
    pomodoroMs = minutesToMilliseconds(inputFocus.value);
    shortRestMs = minutesToMilliseconds(inputShortBreak.value);
    longRestMs = minutesToMilliseconds(inputLongBreak.value);   
+   controlButton.innerText==="RESTART" && cycleCount--;
    handleSidebar(gear);
-})
+   pomodoroEngine('START');
+});
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 

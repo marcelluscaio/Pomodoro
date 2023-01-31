@@ -61,8 +61,9 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] When engine is hit, pomodoro pauses
 - [X] update tab title
 - [X] Setting fluid typography
-- [ ] Disable button when sidebaer shows
-- [ ] Allow user to restart that Cycle (in the middle of focus, you want to change and start over)
+- [X] Disable button when sidebaer shows
+- [X] Restart cycle when hitting save
+- [X] Prevent pomodoro from restarting when user had paused it before opening configs
 - [ ] Sound of start and end (Fazer meus 4 audios)
 Jean:
 - [ ] Status em cima do numero: Foco, Descanso
@@ -195,3 +196,12 @@ Vira
 )
 
 const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
+
+
+
+Atenção:
+
+case 'RESTART':
+         !sidebarIsOpen && pomodoroEngine('RESTART')
+         //Prevents pomodoro from restarting when user had paused it before opening configs, and having the time reunning while user was in configs
+         break;
