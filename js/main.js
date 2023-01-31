@@ -33,6 +33,8 @@ let pomodoroMs = minutesToMilliseconds(inputFocus.value);
 let shortRestMs = minutesToMilliseconds(inputShortBreak.value);
 let longRestMs = minutesToMilliseconds(inputLongBreak.value);
 
+renderTime(pomodoroMs / 1000);
+
 gear.addEventListener('click', e => {
    handleSidebar(e.target)
 });

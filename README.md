@@ -65,6 +65,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Restart cycle when hitting save
 - [X] Prevent pomodoro from restarting when user had paused it before opening configs
 - [X] Save setting to local Storage
+- [X] Setting timer on start dinamically 
 - [ ] Sound of start and end (Fazer meus 4 audios)
 - [ ] JS Organization
 - [ ] CSS Organization
