@@ -145,6 +145,7 @@ const pomodoroStages = [
          renderTime(periodSeconds);
          const directionBg = 'backward';
          const intervalChange = 120;
+         playAudio(audioBreak);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
          setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
       }
@@ -153,7 +154,9 @@ const pomodoroStages = [
       stage: 'PAUSE',
       noticeToUser: 'Paused',
       buttonText: 'restart',
-      action: function(){} 
+      action: function(){
+         playAudio(audioPause);
+      } 
    },
    {
       stage: 'RESTART',
@@ -167,6 +170,7 @@ const pomodoroStages = [
          renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120 - bodyHue;
+         playAudio(audioFocus);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
          setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
       }
@@ -194,6 +198,7 @@ const pomodoroStages = [
                e.style.backgroundColor =`hsl(0, 50%, 25%)`;
                e.classList.remove('restore');
             });
+            playAudio(audioFocus);
             decreasesSeconds(periodSeconds, directionBg, intervalChange);
             setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
          }, 2000)         
@@ -253,15 +258,19 @@ function pomodoroEngine(buttonContent){
 
 const playAudio = (audio) => audio.play();
 
+/* let gravador;
+let audio;
+const getAudio = () => {   
+   navigator.mediaDevices.getUserMedia({audio: true})
+      .then(response => gravador = response)
+      .then(gravador => audio = new MediaRecorder(gravador))
+      .then(() => audio.start())
+}
 
+const stopAudio = async (audio) => {
+   let resposta = await audio;
+   console.log(resposta);
+   audio.stop();
+   console.log(gravador);
 
-/* 
-   Criar audio
-   const audio2 = new Audio('url');
-   const audio3 = new Audio('url');
-   const audio4 = new Audio('url');
-
-   audio1.play() etc
-
-   Fazer audio para inicio do foco, fim do foco, inicio do descanso, fim do descanso
- */
+}  */
