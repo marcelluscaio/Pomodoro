@@ -2,9 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+   --fs-1: clamp(0.97rem, calc(0.87rem + 0.53vw), 1.71rem);
+   --fs-2: clamp(1.62rem, calc(1.39rem + 1.13vw), 3.20rem);
+   --fs-3: clamp(2.70rem, calc(2.23rem + 2.36vw), 6.00rem);
+   --fs-4: clamp(4.50rem, calc(3.54rem + 4.82vw), 11.25rem);
+}
+
 body{
    background-color: hsl(0, 50%, 25%);
    line-height: 1.5;
+}
+
+.fs-1{
+   font-size: var(--fs-1);
+}
+
+.fs-2{
+   font-size: var(--fs-2);
+}
+
+.fs-3{
+   font-size: var(--fs-3);
+}
+
+.fs-4{
+   font-size: var(--fs-4);
 }
 
 h1{
@@ -13,6 +36,11 @@ h1{
 
 h1 + div{
    box-shadow: 0px .5em 1em rgba(0,0,0,0.5);
+}
+
+svg{
+   width: var(--fs-2);
+   height: var(--fs-2);
 }
 
 label::after{

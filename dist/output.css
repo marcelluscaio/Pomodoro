@@ -582,16 +582,8 @@ video {
   height: 100vh;
 }
 
-.h-7 {
-  height: 1.75rem;
-}
-
 .h-3\/5 {
   height: 60%;
-}
-
-.w-7 {
-  width: 1.75rem;
 }
 
 .w-2\/5 {
@@ -608,6 +600,10 @@ video {
 
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.w-3\/4 {
+  width: 75%;
 }
 
 .min-w-fit {
@@ -746,8 +742,8 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .pt-16 {
@@ -762,29 +758,9 @@ video {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -836,9 +812,32 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root{
+  --fs-1: clamp(0.97rem, calc(0.87rem + 0.53vw), 1.71rem);
+  --fs-2: clamp(1.62rem, calc(1.39rem + 1.13vw), 3.20rem);
+  --fs-3: clamp(2.70rem, calc(2.23rem + 2.36vw), 6.00rem);
+  --fs-4: clamp(4.50rem, calc(3.54rem + 4.82vw), 11.25rem);
+}
+
 body{
   background-color: hsl(0, 50%, 25%);
   line-height: 1.5;
+}
+
+.fs-1{
+  font-size: var(--fs-1);
+}
+
+.fs-2{
+  font-size: var(--fs-2);
+}
+
+.fs-3{
+  font-size: var(--fs-3);
+}
+
+.fs-4{
+  font-size: var(--fs-4);
 }
 
 h1{
@@ -847,6 +846,11 @@ h1{
 
 h1 + div{
   box-shadow: 0px .5em 1em rgba(0,0,0,0.5);
+}
+
+svg{
+  width: var(--fs-2);
+  height: var(--fs-2);
 }
 
 label::after{
@@ -909,9 +913,8 @@ label::after{
 }
 
 @media (min-width: 768px) {
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+  .md\:pt-4 {
+    padding-top: 1rem;
   }
 }
 
@@ -919,10 +922,5 @@ label::after{
   .lg\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .lg\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }
 }

@@ -60,12 +60,13 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] When hit save pomodoro restarts
 - [X] When engine is hit, pomodoro pauses
 - [X] update tab title
+- [X] Setting fluid typography
 - [ ] Allow user to restart that Cycle (in the middle of focus, you want to change and start over)
 - [ ] Sound of start and end (Fazer meus 4 audios)
 Jean:
 - [ ] Status em cima do numero: Foco, Descanso
 - [X] Colocar na aba do chrome os tempo atual
-- [ ] gitignore node modules
+- [X] gitignore node modules
 Fluid type
 local storage
 Implementar organização JS (Diferentes arquivos, Organizaçao interna)
