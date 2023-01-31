@@ -32,6 +32,7 @@ gear.addEventListener('click', e => {
 const handleSidebar = (icon) => {
    toggleRotation(icon);
    toggleTranslate();
+   disableButton();
    handlePomodoroButton();
 }
 
@@ -47,6 +48,11 @@ const toggleRotation = target => {
 
 const toggleTranslate = () => {
    sidebar.classList.toggle('translate-x-full')
+}
+
+const disableButton = () => {
+   controlButton.classList.toggle('disabled');
+   controlButton.disabled === false ? controlButton.disabled = true : controlButton.disabled = false;
 }
 
 const handlePomodoroButton = () => {

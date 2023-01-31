@@ -61,6 +61,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] When engine is hit, pomodoro pauses
 - [X] update tab title
 - [X] Setting fluid typography
+- [ ] Disable button when sidebaer shows
 - [ ] Allow user to restart that Cycle (in the middle of focus, you want to change and start over)
 - [ ] Sound of start and end (Fazer meus 4 audios)
 Jean:

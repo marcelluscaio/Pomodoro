@@ -590,6 +590,10 @@ video {
   width: 40%;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -600,10 +604,6 @@ video {
 
 .w-2\/3 {
   width: 66.666667%;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .min-w-fit {
@@ -758,11 +758,6 @@ video {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -904,6 +899,10 @@ label::after{
   to{
     transform: rotate(-1turn);
   }
+}
+
+.disabled{
+  cursor: not-allowed;
 }
 
 @media (min-width: 640px) {
