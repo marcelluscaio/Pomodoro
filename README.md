@@ -67,6 +67,7 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Save setting to local Storage
 - [X] Setting timer on start dinamically 
 - [ ] Sound of start and end (Fazer meus 4 audios)
+- [ ] Allow user to record own audio
 - [ ] JS Organization
 - [ ] CSS Organization
 

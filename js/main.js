@@ -13,6 +13,9 @@ const inputFocus = select("#focus");
 const inputShortBreak = select("#short-break");
 const inputLongBreak = select("#long-break");
 const saveButton = select("#save-button");
+const audioFocus = new Audio(`./sound/foco.m4a`);
+const audioPause = new Audio(`./sound/pausa.m4a`);
+const audioBreak = new Audio(`./sound/descanso.m4a`);
 
 let timeLeft;
 let counter;
@@ -125,6 +128,7 @@ const pomodoroStages = [
          renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120;
+         playAudio(audioFocus);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
          setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
       }
@@ -247,9 +251,12 @@ function pomodoroEngine(buttonContent){
    currentStage.action();
 };
 
+const playAudio = (audio) => audio.play();
+
+
+
 /* 
    Criar audio
-   const audio1 = new Audio('url');
    const audio2 = new Audio('url');
    const audio3 = new Audio('url');
    const audio4 = new Audio('url');
