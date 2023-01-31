@@ -174,6 +174,7 @@ function formatTime(time){
 
 function renderTime(time){
    timer.innerText = formatTime(time);
+   document.title = `Pomodoro ${formatTime(time)}`
 }
 
 function decreasesSeconds(seconds, directionBg, intervalChange){
