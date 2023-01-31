@@ -15,6 +15,11 @@ h1 + div{
    box-shadow: 0px .5em 1em rgba(0,0,0,0.5);
 }
 
+label::after{
+   content: ' (em minutos)';
+   font-weight: 300;
+}
+
 .cycles::before {
     content: "Cycle #";
 }
