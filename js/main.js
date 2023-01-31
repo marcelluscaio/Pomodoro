@@ -22,6 +22,13 @@ let bodyHue = 0;
 let sidebarIsOpen = false;
 
 const minutesToMilliseconds = (minutes) => minutes * 60000;
+
+if(localStorage.length > 0){
+   inputFocus.value = localStorage.getItem('pomodoroMs');
+   inputShortBreak.value = localStorage.getItem('shortRestMs');
+   inputLongBreak.value = localStorage.getItem('longRestMs');
+}
+
 let pomodoroMs = minutesToMilliseconds(inputFocus.value);
 let shortRestMs = minutesToMilliseconds(inputShortBreak.value);
 let longRestMs = minutesToMilliseconds(inputLongBreak.value);
@@ -81,24 +88,35 @@ const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
 
 saveButton.addEventListener('click', e => {
    e.preventDefault();
-   pomodoroMs = minutesToMilliseconds(inputFocus.value);
-   shortRestMs = minutesToMilliseconds(inputShortBreak.value);
-   longRestMs = minutesToMilliseconds(inputLongBreak.value);   
-   controlButton.innerText==="RESTART" && cycleCount--;
+   setDurations();
+   controlButton.innerText==="RESTART" && cycleCount--; //if configs ae saved during a cycle, decreases cycle count before increasing in pomodoroEngine
    handleSidebar(gear);
    pomodoroEngine('START');
 });
+
+const setDurations = () => {
+   pomodoroMs = minutesToMilliseconds(inputFocus.value);
+   shortRestMs = minutesToMilliseconds(inputShortBreak.value);
+   longRestMs = minutesToMilliseconds(inputLongBreak.value);
+   updateLocalstorage();   
+}
+
+const updateLocalstorage = () => {
+   localStorage.setItem('pomodoroMs', inputFocus.value);
+   localStorage.setItem('shortRestMs', inputShortBreak.value);
+   localStorage.setItem('longRestMs', inputLongBreak.value);
+}
 
 controlButton.addEventListener("click", (e) => pomodoroEngine(e.target.innerText));
 
 const pomodoroStages = [
    {
       stage: 'START',
-      noticeToUser: 'Concentre-se',
+      noticeToUser: 'Focus',
       buttonText: 'pause',
       action: function(){
          periodMilliseconds = pomodoroMs;
-         messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
+         messageAfterCountdown = 'Time\'s up. Rest a little';
          buttonTextAfterCountdown = 'rest';    
          handleCycle();
          periodSeconds = periodMilliseconds / 1000;
@@ -111,11 +129,11 @@ const pomodoroStages = [
    },
    {
       stage: 'REST',
-      noticeToUser: 'Começou seu descanso',
+      noticeToUser: 'Relax a bit',
       buttonText: 'skip rest',
       action: function(){
          periodMilliseconds = cycleCount % 4 === 0 ? longRestMs : shortRestMs;
-         messageAfterCountdown = 'Seu descanso acabou. Comece mais um foco';
+         messageAfterCountdown = 'Time to work. Start another focus';
          buttonTextAfterCountdown = 'start';    
          periodSeconds = periodMilliseconds / 1000;
          renderTime(periodSeconds);
@@ -127,17 +145,17 @@ const pomodoroStages = [
    },
    {
       stage: 'PAUSE',
-      noticeToUser: 'Tempo pausado',
+      noticeToUser: 'Paused',
       buttonText: 'restart',
       action: function(){} 
    },
    {
       stage: 'RESTART',
-      noticeToUser: 'Concentre-se',
+      noticeToUser: 'Focus',
       buttonText: 'pause',
       action: function(){
          periodMilliseconds = timeLeft * 1000;
-         messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
+         messageAfterCountdown = 'Time\'s up. Rest a little';
          buttonTextAfterCountdown = 'rest';    
          periodSeconds = periodMilliseconds / 1000;
          renderTime(periodSeconds);
@@ -149,11 +167,11 @@ const pomodoroStages = [
    },
    {
       stage: 'SKIP REST',
-      noticeToUser: 'Concentre-se',
+      noticeToUser: 'Focus',
       buttonText: 'pause',
       action: function(){
          periodMilliseconds = pomodoroMs;
-         messageAfterCountdown = 'Seu Pomodoro acabou. Descanse um pouco';
+         messageAfterCountdown = 'Time\'s up. Rest a little';
          buttonTextAfterCountdown = 'rest';    
          handleCycle();
          periodSeconds = periodMilliseconds / 1000;

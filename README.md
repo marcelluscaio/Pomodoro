@@ -59,20 +59,19 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] When hit save sidebar goes away
 - [X] When hit save pomodoro restarts
 - [X] When engine is hit, pomodoro pauses
-- [X] update tab title
+- [X] Update tab title with timer
 - [X] Setting fluid typography
 - [X] Disable button when sidebaer shows
 - [X] Restart cycle when hitting save
 - [X] Prevent pomodoro from restarting when user had paused it before opening configs
+- [X] Save setting to local Storage
 - [ ] Sound of start and end (Fazer meus 4 audios)
-Jean:
-- [ ] Status em cima do numero: Foco, Descanso
-- [X] Colocar na aba do chrome os tempo atual
-- [X] gitignore node modules
-Fluid type
-local storage
-Implementar organização JS (Diferentes arquivos, Organizaçao interna)
-Implementar organização CSS
+- [ ] JS Organization
+- [ ] CSS Organization
+
+Sugestoes Jean:
+Colocar na aba do chrome os tempo atual
+Gitignore node modules
 
 
 ## Screenshots
