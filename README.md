@@ -168,7 +168,7 @@ const handlePomodoroButton = () => {
 }
 ```
 
-### Operadores ternários
+### Operadores ternários e short-circuit evaluation
 Utilização de operadores ternários e short-circuit evaluation para trazer mais concisão e legibilidade para o código.
 ```
 const toggleTranslate = () => {
