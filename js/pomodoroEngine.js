@@ -12,9 +12,8 @@ const pomodoroStages = [
          renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120;
-         playAudio(audioFocus);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
-         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
+         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown, audioBreak);
       }
    },
    {
@@ -23,15 +22,14 @@ const pomodoroStages = [
       buttonText: 'skip rest',
       action: function(){
          periodMilliseconds = cycleCount % 4 === 0 ? longRestMs : shortRestMs;
-         messageAfterCountdown = 'Time to work. Start another focus';
+         messageAfterCountdown = 'Time to work';
          buttonTextAfterCountdown = 'start';    
          periodSeconds = periodMilliseconds / 1000;
          renderTime(periodSeconds);
          const directionBg = 'backward';
          const intervalChange = 120;
-         playAudio(audioBreak);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
-         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
+         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown, audioFocus);
       }
    },
    {
@@ -54,9 +52,8 @@ const pomodoroStages = [
          renderTime(periodSeconds);
          const directionBg = 'forward';
          const intervalChange = 120 - bodyHue;
-         playAudio(audioFocus);
          decreasesSeconds(periodSeconds, directionBg, intervalChange);
-         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
+         setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown, audioBreak);
       }
    },
    {
@@ -82,9 +79,8 @@ const pomodoroStages = [
                e.style.backgroundColor =`hsl(0, 50%, 25%)`;
                e.classList.remove('restore');
             });
-            playAudio(audioFocus);
             decreasesSeconds(periodSeconds, directionBg, intervalChange);
-            setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown);
+            setsCountdown(periodSeconds, messageAfterCountdown, buttonTextAfterCountdown, audioBreak);
          }, 2000)         
       }
    }
@@ -117,10 +113,11 @@ function changesBg(rate, direction){
    controlButton.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
 }
 
-function setsCountdown(seconds, message, buttonText){
+function setsCountdown(seconds, message, buttonText, audio){
    timeOut = setTimeout(() =>
       {
-         clearInterval(counter);
+         clearInterval(counter);         
+         playAudio(audio);
          noticeToUser.innerText = message;
          controlButton.innerText = buttonText;
       }, seconds * 1000);

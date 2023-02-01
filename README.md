@@ -117,7 +117,7 @@ Havia utilizado outra forma de checar se um valor era uma letra, mas símbolos e
 const isLetter = (character) => character.toLowerCase() != character.toUpperCase();
 ```
 
-### Mudança de core de fundo
+### Mudança de cores de fundo
 A mudança de cores do fundo havia sido estruturada da seguinte forma:
 ```
 let percentageOfInterval = 100 - (((timeLeft*1000) / totalTime) * 100);
@@ -170,7 +170,6 @@ const handlePomodoroButton = () => {
 
 ### Operadores ternários
 Utilização de operadores ternários e short-circuit evaluation para trazer mais concisão e legibilidade para o código.
-e.g.:
 ```
 const toggleTranslate = () => {
    sidebar.classList.toggle('translate-x-full');
