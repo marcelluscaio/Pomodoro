@@ -24,6 +24,8 @@ Ferramenta para auxiliar na aplicação do método Pomodoro. Controle seus ciclo
 :fountain_pen: Tipografia fluida
 
 ## Técnicas para prestar atenção
+
+### Estrutura
 O código estava estruturado em uma sequência de condicionais, o que dificultava a manutenção e mesmo o desenvolvimento em si do projeto. A criação de um objeto com as regras de cada etapa, e uma função que executa essas regras tornou o código mais legível e permitiu enxergar novas possibilidades de melhoria, como a criação da etapa "skip code".
 O código era assim (ainda em estágio intermediário de desenvolvimento): 
 ```
@@ -101,8 +103,10 @@ function setsCountdown(){
 ```
 E foi estruturado como pode ser visto no arquivo pomodoroEngine.js.
 
+### White-space
 A seção de mensagem ao usuário, ainda que vazia, ocupa espaço na tela, permitindo uma quantidade menor de mudança de layout. Para isso utilizei a propriedade white-space com o valor pre-wrap (a classe utilitária whitespace-pre-wrap no Tailwind).
 
+### Input text só aceita números
 Utilização de input text para os valores numéricos da configuração, tendo em vista os problemas
  que o input number pode trazer (ver: https://css-tricks.com/what-to-use-instead-of-number-inputs/ ). Para lidar com isso, criei uma validação que impede o usuário de inserir qualquer caracter não numérico:
  ```
@@ -112,6 +116,8 @@ Havia utilizado outra forma de checar se um valor era uma letra, mas símbolos e
 ```
 const isLetter = (character) => character.toLowerCase() != character.toUpperCase();
 ```
+
+### Mudança de core de fundo
 A mudança de cores do fundo havia sido estruturada da seguinte forma:
 ```
 let percentageOfInterval = 100 - (((timeLeft*1000) / totalTime) * 100);
@@ -143,6 +149,8 @@ Precisei ainda criar uma animação que restabelece de forma gradativa a cor de 
 }
 ```
 
+### Interação entre sidebar e funcinalidade principal
+
 Criei um mecanismo para impedir que o temporizador funcione quando o menu de configurações lateral é aberto.
 ```
 const handlePomodoroButton = () => {
@@ -160,6 +168,7 @@ const handlePomodoroButton = () => {
 }
 ```
 
+### Operadores ternários
 Utilização de operadores ternários e short-circuit evaluation para trazer mais concisão e legibilidade para o código.
 e.g.:
 ```
@@ -178,6 +187,7 @@ saveButton.addEventListener('click', e => {
    pomodoroEngine('START');
 });
 ```
+
 ## Objetivo
 
 O objetivo deste projeto foi desenvolver um sistema do Pomodoro em equipe durante o evento Live CoDe.
