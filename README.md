@@ -66,10 +66,8 @@ https://www.section.io/engineering-education/how-to-use-javascript-arrow-functio
 - [X] Prevent pomodoro from restarting when user had paused it before opening configs
 - [X] Save setting to local Storage
 - [X] Setting timer on start dinamically 
-- [ ] Sound of start and end (Fazer meus 4 audios)
-- [ ] Allow user to record own audio
+- [X] Sound of start and end (Fazer meus 4 audios)
 - [ ] JS Organization
-- [ ] CSS Organization
 
 Sugestoes Jean:
 Colocar na aba do chrome os tempo atual
