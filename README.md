@@ -28,7 +28,7 @@ Ferramenta para auxiliar na aplicação do método Pomodoro. Controle seus ciclo
 ### Estrutura
 O código estava estruturado em uma sequência de condicionais, o que dificultava a manutenção e mesmo o desenvolvimento em si do projeto. A criação de um objeto com as regras de cada etapa, e uma função que executa essas regras tornou o código mais legível e permitiu enxergar novas possibilidades de melhoria, como a criação da etapa "skip code".
 O código era assim (ainda em estágio intermediário de desenvolvimento): 
-```
+```js
 if(controlButton.innerText==='START'){
       noticeToUser.innerText = "Concentre-se";
       controlButton.innerText = 'pause';
@@ -109,23 +109,23 @@ A seção de mensagem ao usuário, ainda que vazia, ocupa espaço na tela, permi
 ### Input text só aceita números
 Utilização de input text para os valores numéricos da configuração, tendo em vista os problemas
  que o input number pode trazer (ver: https://css-tricks.com/what-to-use-instead-of-number-inputs/ ). Para lidar com isso, criei uma validação que impede o usuário de inserir qualquer caracter não numérico:
- ```
+ ```js
  const allowOnlyNumbers = value => value.replace(/[^0-9]+/, '');
  ```
 Havia utilizado outra forma de checar se um valor era uma letra, mas símbolos e acentos não eram identificados
-```
+```js
 const isLetter = (character) => character.toLowerCase() != character.toUpperCase();
 ```
 
 ### Mudança de cores de fundo
 A mudança de cores do fundo havia sido estruturada da seguinte forma:
-```
+```js
 let percentageOfInterval = 100 - (((timeLeft*1000) / totalTime) * 100);
 bodyHue = percentageOfInterval *1.2; 
 ```
 Isso funcionava para partir do Hue 0, mas não funcionava para retornar para o ponto inicial.
 Reestruturei o código utilizanto uma taxa e direção, o que permite lidar com situações como a volta à cor inicial, no caso da etapa 'break' e permitir que a cor final seja sempre a mesma em casos de pausa (em uma etapa do desenvolvimento a pausa reiniciava a mudança de cor, fazendo com que a cor de fundo variasse de acordo com a quantidade de pausas que o usuário fazia):
-```
+```js
 function changesBg(rate, direction){   
    direction === 'forward' ? bodyHue += rate : bodyHue -= rate;
    body.style.backgroundColor = `hsl(${bodyHue}, 50%, 25%)`;
@@ -133,7 +133,7 @@ function changesBg(rate, direction){
 }
 ```
 Precisei ainda criar uma animação que restabelece de forma gradativa a cor de fundo caso o usuário resolva pular o descanso ('skip rest'):
-```
+```js
 .restore{
    animation-name: backToRed;
    animation-duration: 1.5s;
@@ -152,7 +152,7 @@ Precisei ainda criar uma animação que restabelece de forma gradativa a cor de 
 ### Interação entre sidebar e funcinalidade principal
 
 Criei um mecanismo para impedir que o temporizador funcione quando o menu de configurações lateral é aberto.
-```
+```js
 const handlePomodoroButton = () => {
    switch(controlButton.innerText){
       case 'START':
@@ -170,14 +170,14 @@ const handlePomodoroButton = () => {
 
 ### Operadores ternários e short-circuit evaluation
 Utilização de operadores ternários e short-circuit evaluation para trazer mais concisão e legibilidade para o código.
-```
+```js
 const toggleTranslate = () => {
    sidebar.classList.toggle('translate-x-full');
    sidebarIsOpen ? sidebarIsOpen = false : sidebarIsOpen = true;
 }
 ```
 
-```
+```js
 saveButton.addEventListener('click', e => {
    e.preventDefault();
    setDurations();
